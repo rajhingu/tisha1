@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Tisha 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Pacifico', cursive;
+    }
+    body {
+      background: url('https://i.postimg.cc/jjp266b4/ba1814e9-4390-8cd5-a2eafc07a336.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #d63384;
+    }
+    .container {
+      background-color: #ffffffcc;
+      border-radius: 25px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 500px;
+      padding: 30px;
+    }
+    h1 {
+      font-size: 2.8rem;
+      margin: 20px 0 10px;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    .btn {
+      margin: 10px;
+      background-color: #ff69b4;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+    }
+    .message {
+      margin-top: 25px;
+      font-size: 1.6rem;
+      color: #b03060;
+      display: none;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .music-toggle {
+      margin-top: 15px;
+      font-size: 1rem;
+      background: #fff;
+      border: 2px solid #d63384;
+      border-radius: 25px;
+      padding: 8px 20px;
+      color: #d63384;
+      cursor: pointer;
+    }
+    .music-toggle:hover {
+      background: #ffddee;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="love-romantic-hopeful-music-333017.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <div class="container">
+    <h1>My Sweet Tisha ❤️</h1>
+    <p>Every heartbeat says...<br><strong>I love you more every day 💌</strong></p>
+    <div>
+      <button class="btn" onclick="playMusic(); showYes()">Do you love me? Yes 💖</button>
+      <button class="btn" onclick="playMusic(); showNo()">No 😢</button>
+    </div>
+    <div class="message" id="hiddenMessage"></div>
+    <button class="music-toggle" onclick="toggleMusic()" id="musicToggleBtn">🔇 Music Off</button>
+  </div>
+
+  <script>
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+
+    function playMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play().catch(e => console.log("Playback prevented", e));
+        musicToggleBtn.innerText = '🔇 Music Off';
+      }
+    }
+
+    function toggleMusic() {
+      if (bgMusic.paused) {
+        bgMusic.play().catch(e => console.log("Error playing", e));
+        musicToggleBtn.innerText = '🔇 Music Off';
+      } else {
+        bgMusic.pause();
+        musicToggleBtn.innerText = '🔊 Music On';
+      }
+    }
+
+    function showYes() {
+      document.getElementById('hiddenMessage').innerText = "Yay! I love you too Tisha, my bachuu! 💞";
+      document.getElementById('hiddenMessage').style.display = 'block';
+    }
+
+    function showNo() {
+      document.getElementById('hiddenMessage').innerText = "Oh no! But I still love you! 💔";
+      document.getElementById('hiddenMessage').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
